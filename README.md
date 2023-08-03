@@ -25,9 +25,9 @@ yarn dev
 
 ### Overview of the folder structure
 
-- `/src/components` -> contains components that have multiple uses
+- `/src/components` -> contains components that may be used in multiple places
 - `/src/components/fields` -> contains components to render the differen Fields
-- `/src/pages/` -> the pages that this application is built of. They contain React Components from the `./components` directory.
+- `/src/pages/` -> components that render the pages of this application
 - `/src/App.tsx` -> the root level component
 - `/src/country-service.ts` -> a funtion that fetches data on countries with the ability to filter on country name.
 
@@ -40,7 +40,7 @@ yarn dev
 ### When you're ready with the test
 
 1. Make sure you have commited and pushed all your changes
-2. Initiate a Pull Request on GitHub. I'll review your PR and use it as a place to comment the results of the test
+2. Initiate a Pull Request on GitHub. I'll review your PR and add comments to your code.
 
 Good luck 💪🏻
 
@@ -54,11 +54,11 @@ Most of them do not have to be solves in order. So don't hesitate to skip and pr
 ⏳ Estimated time 10 min <br/>
 📂 Important files: `components/ModeSwitch/useMode.ts`, `components/ModeSwitch/ModeSwitch.tsx`  
 
-Noticed the switch button in the "Designer" page? This is switch button is meant toggle between "Edit" and "Preview" mode but unfortunatly it doesn't work. The problem is that it is a local state hook `useReducer`. 
+Noticed the switch button in the "Designer" page? This switch button is meant toggle between "Edit" and "Preview" mode but unfortunatly it doesn't work. The problem is that it is a local state hook `useReducer`. 
 
 We want this mode-state to be part of the URL as a query parameter. The URL is also a piece of application state that can store variables.
 
-**Re-mplement the `useMode` hook so it is synchronised with the URL Search paramete `mode`**
+**Re-implement the `useMode` hook so it that is synchronised with the URL Search paramete `mode`**
 
 - `/designer?mode=edit` shoud put you in "Edit Mode"
 - `/designer?mode=preview` should put you in "Preview Mode"
@@ -73,16 +73,11 @@ We want this mode-state to be part of the URL as a query parameter. The URL is a
 
 Each field in the Form Buidler has some properties. The goal of this task is to make these properties editable through a form that is rendered in the sidepanel in the `<aside />`. 
 
-Take a look at the TypeScript definition of the field in [`useField.ts`](./src/components/useFields.ts), each attribute (except `id`) should be configurable through a form. It would be nice if you can make the form automatically submits when the user has made it's change to the property.(similar to Figma's sidepanel). This way you can hide the submit button. We don't have handler to store the updated properties yet so you can just `console.log` them. In the next task we'll implement the `updateField` handler.
+Take a look at the TypeScript definition of the field in [`useField.ts`](./src/components/useFields.ts), each attribute (except `id`) should be configurable through a form. It would be nice if you can make the form submit automatically when the user has made it's changes (similar to Figma's sidepanel). This way you can hide the submit button. 
+We'll create the `onSubmit` handler in next task so you can just put `console.log` as the handler of the Form Submit event.
 
 Make sure that the end-user can click on a field to highlight it and edit it's properties in the sidepanel. For this you'll need the code in `SelectionManager.tsx` and complete it further to a fully functional `useSelection` hook.
-
-Each set of properties needs a corresponding field
-Updating the properties from the form automatically when they are valid is a bonus.
-
-Some challenges to think about:
-1. The properties form needs to edit the state of a field while being rendered in a different place in the DOM.
-2. Only one of the properties forms can be visible at a time. How do you keep track of the 'active' field?
+The goal of the `useSelection` hook is to keep track of the selected field by storing it's id. Based on this `isSelected` state you can highlight the selected field and show it's corresponding properties form.
 
 🌎 **Resources**
 - [React Portal](https://react.dev/reference/react-dom/createPortal)
