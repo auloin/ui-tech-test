@@ -1,8 +1,9 @@
-# Technical test
+# Technical test 👩‍🔬
 
-## Introduction
 
-Welcome to technical test 👋. The goal of this test is to measure your frontend development skills in a semi-realistic setting. You're about to build a mini form builder with some of the technologies we use at Tiro.health. The challenge is divided in several tasks and you'll notice that each task description has some links to usefull documentation that may help if you're not familiar with the tech we use.
+Welcome to technical test 👋. 
+
+The goal of this test is to measure your frontend development skills in a semi-realistic setting. You're about to build a mini form builder with some of the technologies we use at Tiro.health. The challenge is divided in several tasks and you'll notice that each task description has some links to usefull documentation that may help if you're not familiar with the tech we use.
 
 ## Getting started with the test
 
@@ -58,6 +59,7 @@ Noticed the switch button in the "Designer" page? This switch button is meant to
 
 We want this mode-state to be part of the URL as a query parameter. The URL is also a piece of application state that can store variables.
 
+
 **Re-implement the `useMode` hook so it that is synchronised with the URL Search paramete `mode`**
 
 - `/designer?mode=edit` shoud put you in "Edit Mode"
@@ -66,7 +68,7 @@ We want this mode-state to be part of the URL as a query parameter. The URL is a
 🌎 **Resources**:
 
 - [React Router - useSearchParams](https://reactrouter.com/en/main/hooks/use-search-params)
-
+---
 ### Create a sidebar with property forms for the fields 
 ⏳ Estimated time 20 min <br/>
 📂 Important files: `components/Aside.tsx`, `components/useAside.tsx` 
@@ -86,6 +88,7 @@ The goal of the `useSelection` hook is to keep track of the selected field by st
 - [Web API HTMLFormElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement)
 - [Web API FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData)
 
+---
 ### Implement an update field handler 
 ⏳ Estimated time 15 min <br/>
 📂 Important files: `components/fields/useFields.tsx`
@@ -106,7 +109,7 @@ If you're ready make sure to bind these handlers to the corresponding buttons in
 
 🌎 **Resources**
 - [Zustand - Typescript usage ](https://github.com/pmndrs/zustand#typescript-usage)
-
+---
 ### Add a new field type: the country combobox
 ⏳ Estimated time 30 min <br/>
 📂 Important files: `pages/Designer/Designer.tsx`, `components/fields/useFields`, and new file(s)
@@ -124,7 +127,7 @@ You can use TanStack Query integrate the async `filterCountries` service in your
 - [TanStack Query - Query Basics](https://tanstack.com/query/latest/docs/react/guides/queries#query-basics)
 - [HeadlessUI - Combobox](https://headlessui.com/react/combobox)
 - [HeadlessUI - Combobox (using with HTML Forms)](https://headlessui.com/react/combobox#using-with-html-forms)
-
+---
 ### Form Filler and Response
 ⏳ Estimated time 20 min <br/>
 📂 Important files: `App.tsx`,`pages/Response/Response.tsx`, `components/fields/useFields`
@@ -138,7 +141,7 @@ Copy the `<Designer/>` page and remove all designer related functionality. Lever
 - [React Router - Route with action handlers](https://reactrouter.com/en/main/route/action)
 - [React Router - Form component](https://reactrouter.com/en/main/components/form)
 - [React Router - useActionData](https://reactrouter.com/en/main/hooks/use-action-data)
-
+---
 ### Drag and Drop fields
 ⏳ Estimated time 20 min <br/>
 📂 Important files: `pages/Designer/Designer.tsx`,`components/fields/FieldWrapper.tsx`,`components/fields/useFields.ts` 
@@ -153,9 +156,8 @@ Once the drag-and-drop interaction is ready, we need to persist the new order of
 
 🌎 **Resources**
 - [dndkit - Sortable preset](https://docs.dndkit.com/presets/sortable)
+---
 
-
-You're done 🎉
-
-Thanks for participating to the test 🙏
-Make sure to commit everything and initiate a PR on GitHub
+Well done, you're ready! 🎉
+ Thanks for participating to the test 🙏
+❗️Make sure to commit everything and initiate a PR on GitHub.
