@@ -60,7 +60,7 @@ Noticed the switch button in the "Designer" page? This switch button is meant to
 We want this mode-state to be part of the URL as a query parameter. The URL is also a piece of application state that can store variables.
 
 
-**Re-implement the `useMode` hook so it that is synchronised with the URL Search paramete `mode`**
+➡️ **Re-implement the `useMode` hook so it that is synchronised with the URL Search paramete `mode`**
 
 - `/designer?mode=edit` shoud put you in "Edit Mode"
 - `/designer?mode=preview` should put you in "Preview Mode"
@@ -73,7 +73,7 @@ We want this mode-state to be part of the URL as a query parameter. The URL is a
 ⏳ Estimated time 20 min <br/>
 📂 Important files: `components/Aside.tsx`, `components/useAside.tsx` 
 
-Each field in the Form Buidler has some properties. The goal of this task is to make these properties editable through a form that is rendered in the sidepanel in the `<aside />`. 
+Each field in the Form Buidler has some properties. <br/>➡️ **The goal of this task is to make these properties editable through a form that is rendered in the sidepanel in the `<aside />`.** 
 
 Take a look at the TypeScript definition of the field in [`useField.ts`](./src/components/useFields.ts), each attribute (except `id`) should be configurable through a form. It would be nice if you can make the form submit automatically when the user has made it's changes (similar to Figma's sidepanel). This way you can hide the submit button. 
 We'll create the `onSubmit` handler in next task so you can just put `console.log` as the handler of the Form Submit event.
@@ -96,7 +96,7 @@ The goal of the `useSelection` hook is to keep track of the selected field by st
 Currently the `useFields` hook has a very naïve implementation. It just returns the `INIT_FIELDS`. In this task we'll connect this hook to a global store that holds the fields using [Zustand](https://github.com/pmndrs/zustand). 
 
 
-**Create a Zustand store with a `fields` attribute holding the form fields**.<br/> The store should accept field updates so that you can pass it to the Form Submit handler from previous task. Make sure to also pass the updates of the `<Label />` to the update handler you've just created.
+➡️ **Create a Zustand store with a `fields` attribute holding the form fields**.<br/> The store should accept field updates so that you can pass it to the Form Submit handler from previous task. Make sure to also pass the updates of the `<Label />` to the update handler you've just created.
 
 If you weren't able to complete previous step, make sure to implement an update field that matches the following TypeScript type:
 ```TypeScript
@@ -104,7 +104,7 @@ type UpdateFn = (field:Partial<Field>, index: number) => void
 ```
 
 Editing the properties of a field is nice but a real form builder can also add and remove fields.<br/>
-**Extend the store you've created by adding an *add* and *remove* field handler**.<br/>
+➡️ **Extend the store you've created by adding an *add* and *remove* field handler**.<br/>
 If you're ready make sure to bind these handlers to the corresponding buttons in the FormBuilder. The 
 
 🌎 **Resources**
@@ -115,7 +115,7 @@ If you're ready make sure to bind these handlers to the corresponding buttons in
 📂 Important files: `pages/Designer/Designer.tsx`, `components/fields/useFields`, and new file(s)
 
 Instead of simply adding a input field for the users to enter their country of birth, we want a combobox that's generating suggestions.<br/>
-**Create a new field type `country` and implement a Combobox using the [components provided by HeadlessUI](https://headlessui.com/react/combobox).**<br/>
+➡️ **Create a new field type `country` and implement a Combobox using the [components provided by HeadlessUI](https://headlessui.com/react/combobox).**<br/>
 You don't need the find an API service to generate country suggestions, there is already one available in [`country-service.ts`]. Just import the following function :
 ```Typescript 
 import findCountries, { Country } from "../country-service"
@@ -134,7 +134,7 @@ You can use TanStack Query integrate the async `filterCountries` service in your
 
 
 Now the Form Builder is useable, we need to render the form in a seperate page so end users can fill it in.
-<br/>**The goal of this task is to create a Form Filler and Form Response page.**<br/>
+<br/>➡️ **The goal of this task is to create a Form Filler and Form Response page.**<br/>
 Copy the `<Designer/>` page and remove all designer related functionality. Leverage the data router capabilities of [React Router to handle Form submissions]() to pass the data to the Form Response page. The Form Response should only give read-only view of the entered data.
 
 🌎 **Resources**
@@ -148,11 +148,11 @@ Copy the `<Designer/>` page and remove all designer related functionality. Lever
 
 Finally, we want to enable the users to move fields arround by using drag-and-drop interactions. The native Drag and Drop API is hard to use but luckily their are libraries to help us.
 
-**Implement drag-and-drop on the fields by using *dnd-kit*s `useSortable` hook**
+➡️ **Implement drag-and-drop on the fields by using *dnd-kit*s `useSortable` hook**
 
 Once the drag-and-drop interaction is ready, we need to persist the new order of the fields in our form store.
 
-**Extend the form store with a `move` handler that updates the order of the fields in the store**
+➡️ **Extend the form store with a `move` handler that updates the order of the fields in the store**
 
 🌎 **Resources**
 - [dndkit - Sortable preset](https://docs.dndkit.com/presets/sortable)
