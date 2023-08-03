@@ -32,7 +32,7 @@ yarn dev
 - `/src/country-service.ts` -> a funtion that fetches data on countries with the ability to filter on country name.
 
 ### During the test
-1. Try to use the resources that are given.
+1. Try to use the documentation when you're not familiar with a particular technology.
 2. Make sure to commit regularly. This way we can reconstruct how you proceeded through the tasks
 3. If you have questions: send an email or open a GitHub issue. I try to respond ASAP.
 
