@@ -54,7 +54,7 @@ Most of them do not have to be solves in order. So don't hesitate to skip and pr
 ⏳ Estimated time 10 min <br/>
 📂 Important files: `components/ModeSwitch/useMode.ts`, `components/ModeSwitch/ModeSwitch.tsx`  
 
-Noticed the switch button in the "Designer" page? This switch button is meant toggle between "Edit" and "Preview" mode but unfortunatly it doesn't work. The problem is that it is a local state hook `useReducer`. 
+Noticed the switch button in the "Designer" page? This switch button is meant toggle between "Edit" and "Preview" mode but unfortunatly it doesn't work. The problem is that it is based on local state hook: `useReducer`. 
 
 We want this mode-state to be part of the URL as a query parameter. The URL is also a piece of application state that can store variables.
 
