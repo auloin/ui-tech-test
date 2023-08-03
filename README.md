@@ -96,9 +96,9 @@ The goal of the `useSelection` hook is to keep track of the selected field by st
 Currently the `useFields` hook has a very naïve implementation. It just returns the `INIT_FIELDS`. In this task we'll connect this hook to a global store that holds the fields using [Zustand](https://github.com/pmndrs/zustand). 
 
 
-**Create a Zustand store with a `fields` attribute holding the form fields**.<br/> The store should accept field updates so that you can pass a update handler to the Form submit handler from previous task. Make sure to also pass the updates of the `<Label />` to the update handler you've just created.
+**Create a Zustand store with a `fields` attribute holding the form fields**.<br/> The store should accept field updates so that you can pass it to the Form Submit handler from previous task. Make sure to also pass the updates of the `<Label />` to the update handler you've just created.
 
-If weren't able to complete previous step, make sure to implement an update field that matches the following TypeScript type:
+If you weren't able to complete previous step, make sure to implement an update field that matches the following TypeScript type:
 ```TypeScript
 type UpdateFn = (field:Partial<Field>, index: number) => void
 ```
