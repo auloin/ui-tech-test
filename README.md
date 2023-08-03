@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to this technical challenge. You're about to build a mini form builder with some of the technologies we use at Tiro.health. The challenge is divided in several tasks and you'll notice that each task description has some links to usefull documentation that may help if you're not familiar with the tech we use.
+Welcome to technical test 👋. The goal of this test is to measure your frontend development skills in a semi-realistic setting. You're about to build a mini form builder with some of the technologies we use at Tiro.health. The challenge is divided in several tasks and you'll notice that each task description has some links to usefull documentation that may help if you're not familiar with the tech we use.
 
 ## Getting started with the test
 
@@ -32,14 +32,17 @@ yarn dev
 - `/src/country-service.ts` -> a funtion that fetches data on countries with the ability to filter on country name.
 
 ### During the test
+
 1. Try to use the documentation when you're not familiar with a particular technology.
-2. Make sure to commit regularly. This way we can reconstruct how you proceeded through the tasks
-3. If you have questions: send an email or open a GitHub issue. I try to respond ASAP.
+2. Commit regularly. This way we can reconstruct how you proceeded through the tasks
+3. If you have questions: send an email or open a GitHub issue on this project. I'll try to respond ASAP.
 
 ### When you're ready with the test
 
 1. Make sure you have commited and pushed all your changes
 2. Initiate a Pull Request on GitHub. I'll review your PR and use it as a place to comment the results of the test
+
+Good luck 💪🏻
 
 ## The Challenges
 Next section goes over the list of challenges that you need to solve. 
