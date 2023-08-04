@@ -1,15 +1,15 @@
 # Technical test 👩‍🔬
 
 
-Welcome to technical test 👋. 
+Welcome to the technical test 👋. 
 
-The goal of this test is to measure your frontend development skills in a semi-realistic setting. You're about to build a mini form builder with some of the technologies we use at Tiro.health. The challenge is divided in several tasks and you'll notice that each task description has some links to usefull documentation that may help if you're not familiar with the tech we use.
+The goal of this test is to measure your frontend development skills in a realistic setting. You're about to build a mini form builder with some of the technologies we use at Tiro.health. The challenge is divided in several tasks and you'll notice that each task description has some links to usefull documentation that may help if you're not familiar with the tech we use.
 
 ## Getting started with the test
 
 ### Fork this repository
 Fork this repository on GitHub to start developping on your own account.
-This repository supports *Github CodeSpaces*. If you would have issues setting up your environment, know that your can launch VSCode in your browser directly from GitHub without the need to configure the environment.
+This repository supports *Github CodeSpaces*. If you have issues setting up your environment, know that your can launch VSCode in your browser directly from GitHub through Github CodeSpaces without the need to configure the environment.
 
 ### Setup the Environment
 This application uses Vite to transpile React + TypeScript.
@@ -35,19 +35,19 @@ yarn dev
 ### During the test
 
 1. Try to use the documentation when you're not familiar with a particular technology.
-2. Commit regularly. This way we can reconstruct how you proceeded through the tasks
+2. Commit regularly. This way we can reconstruct how you proceeded through the tasks.
 3. If you have questions: send an email or open a GitHub issue on this project. I'll try to respond ASAP.
 
 ### When you're ready with the test
 
-1. Make sure you have commited and pushed all your changes
+1. Make sure you have commited and pushed all your changes.
 2. Initiate a Pull Request on GitHub. I'll review your PR and add comments to your code.
 
 Good luck 💪🏻
 
 ## The Challenges
 Next section goes over the list of challenges that you need to solve. 
-Most of them do not have to be solves in order. So don't hesitate to skip and proceed with the next one if your stuck.
+Most of them do not have to be solved in order. So don't hesitate to skip and proceed with the next one if your stuck.
 
 🔗 Each task has a list of resources that link to the documentation of relevant packages. Use these links, they might help you on the right track if you're lost.
 
@@ -57,13 +57,13 @@ Most of them do not have to be solves in order. So don't hesitate to skip and pr
 
 Noticed the switch button in the "Designer" page? This switch button is meant toggle between "Edit" and "Preview" mode but unfortunatly it doesn't work. The problem is that it is based on local state hook: `useReducer`. 
 
-We want this mode-state to be part of the URL as a query parameter. The URL is also a piece of application state that can store variables.
-
+We want this piece of state to be part of the URL as a query parameter and expose it as a hook with the same interface.
 
 ➡️ **Re-implement the `useMode` hook so it that is synchronised with the URL Search paramete `mode`**
 
 - `/designer?mode=edit` shoud put you in "Edit Mode"
 - `/designer?mode=preview` should put you in "Preview Mode"
+- `/other` should put you in "Preview Mode"
 
 🌎 **Resources**:
 
@@ -73,9 +73,9 @@ We want this mode-state to be part of the URL as a query parameter. The URL is a
 ⏳ Estimated time 20 min <br/>
 📂 Important files: `components/Aside.tsx`, `components/useAside.tsx` 
 
-Each field in the Form Buidler has some properties. <br/>➡️ **The goal of this task is to make these properties editable through a form that is rendered in the sidepanel in the `<aside />`.** 
+Each field in the Form Buidler has some properties. <br/>➡️ **The goal of this task is to make these properties editable through a form that is rendered in the sidepanel `<aside />`.** 
 
-Take a look at the TypeScript definition of the field in [`useField.ts`](./src/components/useFields.ts), each attribute (except `id`) should be configurable through a form. It would be nice if you can make the form submit automatically when the user has made it's changes (similar to Figma's sidepanel). This way you can hide the submit button. 
+Take a look at the TypeScript definition of the field in [`useField.ts`](./src/components/useFields.ts), each attribute (except `id`) should be configurable through a form. Bonus points if you can make the form submit automatically when the user has made it's changes without clicking on the submit button. This way you can hide the submit button. 
 We'll create the `onSubmit` handler in next task so you can just put `console.log` as the handler of the Form Submit event.
 
 Make sure that the end-user can click on a field to highlight it and edit it's properties in the sidepanel. For this you'll need the code in `SelectionManager.tsx` and complete it further to a fully functional `useSelection` hook.
@@ -84,6 +84,7 @@ The goal of the `useSelection` hook is to keep track of the selected field by st
 🌎 **Resources**
 - [React Portal](https://react.dev/reference/react-dom/createPortal)
 - [React useRef](https://react.dev/reference/react/useRef)
+- [React useEffect](https://react.dev/learn/synchronizing-with-effects#subscribing-to-events)
 - [HTML `<form/>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)
 - [Web API HTMLFormElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement)
 - [Web API FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData)
@@ -105,23 +106,25 @@ type UpdateFn = (field:Partial<Field>, index: number) => void
 
 Editing the properties of a field is nice but a real form builder can also add and remove fields.<br/>
 ➡️ **Extend the store you've created by adding an *add* and *remove* field handler**.<br/>
-If you're ready make sure to bind these handlers to the corresponding buttons in the FormBuilder. The 
+If you're ready make sure to bind these the add handler to the buttons in the bottom of the FormBuilder and the remove handler to the *Trash*-button of the fields.
 
 🌎 **Resources**
 - [Zustand - Typescript usage ](https://github.com/pmndrs/zustand#typescript-usage)
 ---
 ### Add a new field type: the country combobox
 ⏳ Estimated time 30 min <br/>
-📂 Important files: `pages/Designer/Designer.tsx`, `components/fields/useFields`, and new file(s)
+📂 Important files: `pages/Designer/Designer.tsx`, `components/fields/useFields`, and new file(s) 😁
 
-Instead of simply adding a input field for the users to enter their country of birth, we want a combobox that's generating suggestions.<br/>
+We need an extra field component for Country input.
+Instead of using a simple text input for the users to enter their country of birth, we want a combobox that's generating suggestions.<br/>
 ➡️ **Create a new field type `country` and implement a Combobox using the [components provided by HeadlessUI](https://headlessui.com/react/combobox).**<br/>
-You don't need the find an API service to generate country suggestions, there is already one available in [`country-service.ts`]. Just import the following function :
+Use the `findCountries` function from `country-service.ts` to return a list of countries given a query:
+
 ```Typescript 
 import findCountries, { Country } from "../country-service"
 ```
 
-You can use TanStack Query integrate the async `filterCountries` service in your component
+You can use TanStack Query integrate the async `filterCountries` fetch function in your component.
 
 🌎 **Resources**
 - [TanStack Query - Query Basics](https://tanstack.com/query/latest/docs/react/guides/queries#query-basics)
@@ -132,10 +135,9 @@ You can use TanStack Query integrate the async `filterCountries` service in your
 ⏳ Estimated time 20 min <br/>
 📂 Important files: `App.tsx`,`pages/Response/Response.tsx`, `components/fields/useFields`
 
-
-Now the Form Builder is useable, we need to render the form in a seperate page so end users can fill it in.
+Now the Form Builder is useable, we need to render the form in a seperate page so end-users can fill it in.
 <br/>➡️ **The goal of this task is to create a Form Filler and Form Response page.**<br/>
-Copy the `<Designer/>` page and remove all designer related functionality. Leverage the data router capabilities of [React Router to handle Form submissions]() to pass the data to the Form Response page. The Form Response should only give read-only view of the entered data.
+Copy the `<Designer/>` page and remove all designer related functionality. Leverage the data router capabilities of [React Router to handle Form submissions](https://reactrouter.com/en/main/components/form) to pass the data to the Form Response page. The Form Response should only give read-only view of the entered data.
 
 🌎 **Resources**
 - [React Router - Route with action handlers](https://reactrouter.com/en/main/route/action)
@@ -146,16 +148,19 @@ Copy the `<Designer/>` page and remove all designer related functionality. Lever
 ⏳ Estimated time 20 min <br/>
 📂 Important files: `pages/Designer/Designer.tsx`,`components/fields/FieldWrapper.tsx`,`components/fields/useFields.ts` 
 
-Finally, we want to enable the users to move fields arround by using drag-and-drop interactions. The native Drag and Drop API is hard to use but luckily their are libraries to help us.
+Finally, we want to enable the users to move fields arround by using drag-and-drop interactions. The native Drag and Drop API is hard to use so luckily their are libraries to help us.
 
 ➡️ **Implement drag-and-drop on the fields by using *dnd-kit*s `useSortable` hook**
+You won't have a handler yet for the `onDragEnd` event, so just use a `console.log`.
 
-Once the drag-and-drop interaction is ready, we need to persist the new order of the fields in our form store.
+Once the drag-and-drop interaction is ready, we need to persist the new order of the fields in our zustand Form store. If you didn't manage to built the store, you'll need to skip this part.
 
-➡️ **Extend the form store with a `move` handler that updates the order of the fields in the store**
+➡️ **Extend the form store with a `move` method that updates the order of the fields in the store**
 
 🌎 **Resources**
 - [dndkit - Sortable preset](https://docs.dndkit.com/presets/sortable)
+- [Array - findIndex()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex)
+- [Array - splice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
 ---
 
 Well done, you're ready! 🎉
