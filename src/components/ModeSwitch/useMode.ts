@@ -1,7 +1,13 @@
-import { useReducer } from "react"
-type Mode = "preview" | "edit"
+import { useSearchParams } from "react-router-dom";
+type Mode = "preview" | "edit";
 
 export default function useMode() {
-    // TODO: re-implement this hook so that it reads and writes the mode query parameter from the URL
-    return useReducer((mode: Mode) => (mode === "preview" ? "edit" : "preview"), "preview")
+  const [params, setSearchParams] = useSearchParams();
+
+  const toggle = () =>
+    setSearchParams({
+      mode: params.get("mode") === "edit" ? "preview" : "edit",
+    });
+  const mode: Mode = params.get("mode") === "edit" ? "edit" : "preview";
+  return [mode, toggle];
 }
