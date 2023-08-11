@@ -24,7 +24,7 @@ function FieldWrapper({ children, className, onRemove, ...props }: React.HTMLAtt
                 type="button"
                 onClick={onRemove}
                 tabIndex={-1}
-                className={classNames("cursor-grab", { "flex": isEditable, "hidden": !isEditable })}
+                className={classNames({ "flex": isEditable, "hidden": !isEditable })}
             >
                 {/** Remove icon */}
                 <TrashIcon className="w-5 h-5 text-gray-400" />

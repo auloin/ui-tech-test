@@ -1,3 +1,6 @@
+import { create } from "zustand"
+import { v4 } from "uuid"
+
 export type Submit = {
     type: "submit",
     text: string,
@@ -22,12 +25,15 @@ export type Combobox = {
 export type Field = Input | Submit | Combobox
 
 
+const generateRandomUUID = () => {
+    return v4() // this may be replaced with other uuid generators
+}
 const INIT_FIELDS: Field[] = [
-    { type: "text", placeholder: "Name", label: null, id: self.crypto.randomUUID() },
-    { type: "number", placeholder: "Age", label: null, id: self.crypto.randomUUID() },
-    { type: "date", placeholder: "Date of Birth", label: null, id: self.crypto.randomUUID() },
-    { type: "country", placeholder: "Country", label: null, id: self.crypto.randomUUID() },
-    { type: "submit", text: "submit", id: self.crypto.randomUUID() }
+    { type: "text", placeholder: "Name", label: null, id: generateRandomUUID() },
+    { type: "number", placeholder: "Age", label: null, id: generateRandomUUID() },
+    { type: "date", placeholder: "Date of Birth", label: null, id: generateRandomUUID() },
+    { type: "country", placeholder: "Country", label: null, id: generateRandomUUID() },
+    { type: "submit", text: "submit", id: generateRandomUUID() }
 ]
 
 /**
